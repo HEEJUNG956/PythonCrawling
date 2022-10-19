@@ -18,7 +18,11 @@ i = 1
 while True:
 
     options = webdriver.ChromeOptions()
-    #options.add_argument('headless')
+    #options.add_argument('--headless')
+    options.add_argument("ignore-certificate-errors");
+    options.add_argument("--start-maximized") 
+    options.add_argument("--window-size=1920,1080") 
+
     UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
     options.add_argument('user-anget=' + UserAgent)
 
@@ -55,6 +59,6 @@ while True:
         driver.quit()
 
     except NoSuchElementException:
-        wb.save('D:/파이썬 크롤링 쿠팡/bs이용/쿠팡.xlsx')
+        wb.save('D:/파이썬 크롤링/bs이용/쿠팡Test.xlsx')
         wb.close()
         exit(0)
